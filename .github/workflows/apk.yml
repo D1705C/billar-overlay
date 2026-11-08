@@ -7,11 +7,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.10' }
-      - run: |
+      - name: Instalar dependencias
+        run: |
           sudo apt-get update
-          sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses5-dev libffi-dev libssl-dev
-          pip install buildozer cython
-      - run: buildozer -v android debug
+          sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf automake libtool pkg-config zlib1g-dev libncurses5-dev libffi-dev libssl-dev cmake
+          pip install buildozer "cython==0.29.36" setuptools
+      - name: Compilar
+        shell: bash
+        run: buildozer -v android debug 2>&1 | tee build.log
+      - name: Mostrar final del registro
+        if: failure()
+        run: tail -n 80 build.log
       - uses: actions/upload-artifact@v4
         with:
           name: apk
