@@ -1,0 +1,10 @@
+COMO OBTENER EL APK (sin instalar nada)
+1. Crea una cuenta gratis en github.com y un repositorio nuevo.
+2. Descomprime este ZIP y sube TODOS los archivos al repositorio
+   (incluida la carpeta oculta .github). Desde PC: "Add file > Upload files".
+3. Abre la pestana "Actions", elige "Build APK" y pulsa "Run workflow".
+4. Espera 20-40 minutos. Al terminar, descarga el artefacto "apk".
+5. Descomprimelo, instala el .apk en tu Android y concede
+   "Mostrar sobre otras aplicaciones".
+Uso: Iniciar overlay > toca blanca y objetivo (modo marcar) >
+"Modo marcar / pasar" para que los toques atraviesen.
